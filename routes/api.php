@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KaryawanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +42,20 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth:sanctum', 'verified']],
     Route::get('logout', [AuthController::class, 'logout']);
     // change password
     Route::put('changePassword', [AuthController::class, 'changePassword']);
+});
+
+Route::get('/karyawan/alltantok', [KaryawanController::class, 'index']);
+
+// karyawan
+Route::group(['prefix' => 'karyawan', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('index', [KaryawanController::class, 'index']);
+    // store
+    Route::post('store', [KaryawanController::class, 'store']);
+    // show
+    Route::get('show/{id}', [KaryawanController::class, 'show']);
+    // update
+    Route::put('update/{id}', [KaryawanController::class, 'update']);
+    // destroy
+    Route::delete('destroy/{id}', [KaryawanController::class, 'destroy']);
 });
