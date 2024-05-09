@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->double('stok');
-            $table->double('satuan');
+            $table->string('satuan');
             $table->timestamps();
         });
     }

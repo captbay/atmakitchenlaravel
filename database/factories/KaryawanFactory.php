@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Jabatan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class KaryawanFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'jabatan_id' => Jabatan::inRandomOrder()->first()->id,
+            'name' => fake()->name(),
         ];
     }
 }
