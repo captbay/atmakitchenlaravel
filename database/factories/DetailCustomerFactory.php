@@ -18,7 +18,7 @@ class DetailCustomerFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::where('role', '==', 'customer')->inRandomOrder()->first()->id,
+            'user_id' => User::where('role',  'customer')->inRandomOrder()->first()->id,
             'total_poin' => fake()->numberBetween(0, 100),
             'saldo' => fake()->numberBetween(1000000, 100000000),
         ];

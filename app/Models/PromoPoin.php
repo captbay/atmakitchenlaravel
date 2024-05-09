@@ -9,7 +9,7 @@ class PromoPoin extends Model
 {
     use HasFactory;
 
-    protected $table = 'promo_poin';
+    protected $table = 'promo_poins';
 
     protected $guarded = ['id'];
 }

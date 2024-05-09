@@ -9,7 +9,7 @@ class HistoryPoin extends Model
 {
     use HasFactory;
 
-    protected $table = 'history_poin';
+    protected $table = 'history_poins';
 
     protected $guarded = ['id'];
 

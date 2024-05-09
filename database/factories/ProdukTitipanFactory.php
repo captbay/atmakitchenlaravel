@@ -17,7 +17,11 @@ class ProdukTitipanFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'penitip_id' => \App\Models\Penitip::inRandomOrder()->first()->id,
+            'name' => $this->faker->text(),
+            'harga' => $this->faker->numberBetween(10000, 100000),
+            'kategori' => $this->faker->randomElement(['makanan', 'minuman']),
+            'gambar' => $this->faker->imageUrl(),
         ];
     }
 }

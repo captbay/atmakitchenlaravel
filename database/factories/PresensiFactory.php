@@ -17,7 +17,8 @@ class PresensiFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'karyawan_id' => \App\Models\Karyawan::inRandomOrder()->first()->id,
+            'tgl_presensi' => $this->faker->date('Y-m-d'),
         ];
     }
 }

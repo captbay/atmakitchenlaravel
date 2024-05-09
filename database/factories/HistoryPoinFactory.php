@@ -17,7 +17,9 @@ class HistoryPoinFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => \App\Models\User::where('role',  'customer')->inRandomOrder()->first()->id,
+            'jenis_history' => fake()->randomElement(['poin', 'bonus']),
+            'total_poin' => fake()->numberBetween(1000000, 10000000),
         ];
     }
 }

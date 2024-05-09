@@ -17,7 +17,10 @@ class PembelianBahanBakuFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'bahan_baku_id' => \App\Models\BahanBaku::inRandomOrder()->first()->id,
+            'jumlah' => fake()->numberBetween(0, 100),
+            'total_harga' => fake()->numberBetween(1000000, 10000000),
+            'waktu' => fake()->dateTime(),
         ];
     }
 }

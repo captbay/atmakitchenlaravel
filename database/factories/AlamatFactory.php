@@ -19,7 +19,7 @@ class AlamatFactory extends Factory
     {
         return [
             //
-            'user_id' => User::where('role', '==', 'customer')->inRandomOrder()->first()->id,
+            'user_id' => User::where('role',  'customer')->inRandomOrder()->first()->id,
             'alamat' => $this->faker->address(),
         ];
     }

@@ -17,7 +17,7 @@ class BahanBakuFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->text(),
             'stok' => fake()->numberBetween(0, 100),
             'satuan' => fake()->randomElement(['kg', 'pcs', 'gr']),
         ];

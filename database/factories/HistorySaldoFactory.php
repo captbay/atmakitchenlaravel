@@ -17,7 +17,8 @@ class HistorySaldoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => \App\Models\User::where('role',  'customer')->inRandomOrder()->first()->id,
+            'total_saldo' => fake()->numberBetween(1000000, 10000000),
         ];
     }
 }

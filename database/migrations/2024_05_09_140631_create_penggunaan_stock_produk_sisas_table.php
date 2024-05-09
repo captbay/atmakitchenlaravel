@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('penggunaan_stock_produk_sisas', function (Blueprint $table) {
             $table->id();
             // produks_id
-            $table->foreignId('produks_id')->constrained('produks')->cascadeOnDelete();
+            $table->foreignId('produk_id')->constrained('produks')->cascadeOnDelete();
             // status
             $table->string('status');
             // kouta_terpakai

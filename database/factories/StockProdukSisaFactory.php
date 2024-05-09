@@ -17,7 +17,8 @@ class StockProdukSisaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'produk_id' => \App\Models\Produk::inRandomOrder()->first()->id,
+            'jumlah' => $this->faker->numberBetween(1, 100),
         ];
     }
 }

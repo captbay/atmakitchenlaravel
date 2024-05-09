@@ -17,7 +17,10 @@ class HampersFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->text(),
+            'harga' => fake()->numberBetween(1000000, 10000000),
+            'kategori' => fake()->randomElement(['makanan', 'minuman']),
+            'gambar' => fake()->imageUrl(),
         ];
     }
 }

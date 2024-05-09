@@ -17,7 +17,9 @@ class PenggunaanStockProdukSisaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'produk_id' => \App\Models\Produk::inRandomOrder()->first()->id,
+            'status' => $this->faker->randomElement(['masuk', 'keluar']),
+            'kouta_terpakai' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

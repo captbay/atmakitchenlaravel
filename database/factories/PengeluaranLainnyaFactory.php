@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class PengeluaranLainnyaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => User::where('role', 'owner')->inRandomOrder()->first()->id,
+            'name' => fake()->text(),
+            'total_harga' => fake()->numberBetween(1000000, 10000000),
+            'waktu' => fake()->dateTime(),
         ];
     }
 }
