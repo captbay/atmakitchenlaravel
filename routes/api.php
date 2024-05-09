@@ -44,6 +44,7 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth:sanctum', 'verified']],
     Route::put('changePassword', [AuthController::class, 'changePassword']);
 });
 
+// ini hapus
 Route::get('/karyawan/alltantok', [KaryawanController::class, 'index']);
 
 // karyawan

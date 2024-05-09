@@ -32,7 +32,7 @@ class AuthController extends Controller
             }
 
             // find user
-            $user = User::where('email', $request->email)->withTrashed()->first();
+            $user = User::where('email', $request->email)->first();
 
             // if user not found
             if (!$user) {
@@ -43,7 +43,7 @@ class AuthController extends Controller
             }
 
             // if emails not verify
-            if ($user->status_verif_email != 1) {
+            if ($user->email_verified_at == null) {
                 return response()->json([
                     'success' => false,
                     'message' => 'Email Anda Belum Terverifikasi!'
@@ -118,7 +118,6 @@ class AuthController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'kode_verif_email' => uniqid(),
-                'status_verif_email' => 0,
                 'role' => 'customer',
             ])->sendEmailVerificationNotification();
 
@@ -346,9 +345,6 @@ class AuthController extends Controller
             $user = User::findOrFail($user_id);
 
             if (!$user->hasVerifiedEmail()) {
-                $user->update([
-                    "status_verif_email" => 1,
-                ]);
                 $user->markEmailAsVerified();
             }
 
