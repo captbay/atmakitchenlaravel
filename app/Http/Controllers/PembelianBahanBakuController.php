@@ -26,7 +26,7 @@ class PembelianBahanBakuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PembelianBahanBaku $pembelianBahanBaku)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +34,7 @@ class PembelianBahanBakuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PembelianBahanBaku $pembelianBahanBaku)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class PembelianBahanBakuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PembelianBahanBaku $pembelianBahanBaku)
+    public function destroy(int $id)
     {
         //
     }

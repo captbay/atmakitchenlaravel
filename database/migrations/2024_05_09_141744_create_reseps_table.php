@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('reseps', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('produk_id')->constrained('produks')->cascadeOnDelete();
+            $table->foreignId('bahan_baku_id')->constrained('bahan_bakus')->cascadeOnDelete();
+            // jumlah
+            $table->double('jumlah');
             $table->timestamps();
         });
     }

@@ -12,7 +12,20 @@ class AlamatController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $data = Alamat::all();
+
+            return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => 'Data alamat ditemukan',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**
@@ -26,7 +39,7 @@ class AlamatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Alamat $alamat)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +47,7 @@ class AlamatController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alamat $alamat)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +55,7 @@ class AlamatController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alamat $alamat)
+    public function destroy(int $id)
     {
         //
     }

@@ -26,7 +26,7 @@ class PresensiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Presensi $presensi)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +34,7 @@ class PresensiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Presensi $presensi)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class PresensiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Presensi $presensi)
+    public function destroy(int $id)
     {
         //
     }

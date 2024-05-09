@@ -26,7 +26,7 @@ class ResepController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Resep $resep)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +34,7 @@ class ResepController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Resep $resep)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class ResepController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Resep $resep)
+    public function destroy(int $id)
     {
         //
     }

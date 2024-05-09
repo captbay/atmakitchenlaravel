@@ -26,7 +26,7 @@ class PengeluaranLainnyaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PengeluaranLainnya $pengeluaranLainnya)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +34,7 @@ class PengeluaranLainnyaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PengeluaranLainnya $pengeluaranLainnya)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class PengeluaranLainnyaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PengeluaranLainnya $pengeluaranLainnya)
+    public function destroy(int $id)
     {
         //
     }

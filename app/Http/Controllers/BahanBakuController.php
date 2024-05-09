@@ -26,7 +26,7 @@ class BahanBakuController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(BahanBaku $bahanBaku)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +34,7 @@ class BahanBakuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BahanBaku $bahanBaku)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class BahanBakuController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(BahanBaku $bahanBaku)
+    public function destroy(int $id)
     {
         //
     }

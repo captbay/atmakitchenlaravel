@@ -26,7 +26,7 @@ class KaryawanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Karyawan $karyawan)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +34,7 @@ class KaryawanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Karyawan $karyawan)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class KaryawanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Karyawan $karyawan)
+    public function destroy(int $id)
     {
         //
     }

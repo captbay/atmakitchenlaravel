@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('pembelian_bahan_bakus', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('bahan_baku_id')->constrained('bahan_bakus')->cascadeOnDelete();
+            // jumlah
+            $table->double('jumlah');
+            $table->double('total_harga');
+            // waktu
+            $table->dateTime('waktu');
             $table->timestamps();
         });
     }

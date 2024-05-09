@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('promo_poins', function (Blueprint $table) {
             $table->id();
+            // kelipatan
+            $table->double('kelipatan');
+            // bonus poin
+            $table->double('bonus_poin');
             $table->timestamps();
         });
     }

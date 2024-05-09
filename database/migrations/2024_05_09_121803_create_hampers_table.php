@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('hampers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->double('harga');
+            $table->string('kategori');
+            $table->string('gambar');
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ class PromoPoinController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PromoPoin $promoPoin)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +34,7 @@ class PromoPoinController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PromoPoin $promoPoin)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class PromoPoinController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PromoPoin $promoPoin)
+    public function destroy(int $id)
     {
         //
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+
+// API without login
+Route::group(['prefix' => 'auth'], function () {
+    // login
+    Route::post('login', [AuthController::class, 'login']);
+    // register
+    Route::post('register', [AuthController::class, 'register']);
+    // verif and resend email
+    Route::get('email/verify/{id}', [AuthController::class, 'verifyEmail'])->name('verification.verify'); // Make sure to keep this as your route name
+    Route::post('email/resend', [AuthController::class, 'resendEmailVerification'])->name('verification.resend');
+    // forgot password
+    Route::post('forgotPassword', [AuthController::class, 'sendEmailForgotPassword'])->middleware('guest')->name('password.email');
+    // reset password
+    Route::post('resetPassword', [AuthController::class, 'resetPassword'])->middleware('guest')->name('password.reset');
+});
+
+// logout
+Route::group(['prefix' => 'auth', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    //logout
+    Route::get('logout', [AuthController::class, 'logout']);
+    // change password
+    Route::put('changePassword', [AuthController::class, 'changePassword']);
 });

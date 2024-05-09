@@ -26,7 +26,7 @@ class HampersController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Hampers $hampers)
+    public function show(int $id)
     {
         //
     }
@@ -34,7 +34,7 @@ class HampersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Hampers $hampers)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -42,7 +42,7 @@ class HampersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Hampers $hampers)
+    public function destroy(int $id)
     {
         //
     }
