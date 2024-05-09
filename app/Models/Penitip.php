@@ -12,4 +12,9 @@ class Penitip extends Model
     protected $table = 'penitips';
 
     protected $guarded = ['id'];
+
+    public function produk_titipan()
+    {
+        return $this->hasMany(ProdukTitipan::class);
+    }
 }

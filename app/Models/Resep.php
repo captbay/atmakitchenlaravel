@@ -12,4 +12,14 @@ class Resep extends Model
     protected $table = 'reseps';
 
     protected $guarded = ['id'];
+
+    public function bahan_baku()
+    {
+        return $this->belongsTo(BahanBaku::class);
+    }
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class);
+    }
 }

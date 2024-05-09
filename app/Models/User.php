@@ -42,4 +42,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function pengeluaran_lainnya()
+    {
+        return $this->hasMany(PengeluaranLainnya::class);
+    }
+
+    public function detail_customer()
+    {
+        return $this->hasOne(DetailCustomer::class);
+    }
+
+    public function history_pengembalian_saldo()
+    {
+        return $this->hasMany(HistoryPengembalianSaldo::class);
+    }
+
+    public function pemesanan()
+    {
+        return $this->hasMany(Pemesanan::class);
+    }
+
+    public function history_poin()
+    {
+        return $this->hasMany(HistoryPoin::class);
+    }
+
+    public function history_saldo()
+    {
+        return $this->hasMany(HistorySaldo::class);
+    }
 }

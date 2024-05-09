@@ -12,4 +12,19 @@ class Pemesanan extends Model
     protected $table = 'pemesanans';
 
     protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function kurir()
+    {
+        return $this->belongsTo(Karyawan::class);
+    }
+
+    public function detail_pemesanan()
+    {
+        return $this->hasMany(DetailPemesanan::class);
+    }
 }

@@ -12,4 +12,9 @@ class Alamat extends Model
     protected $table = 'alamats';
 
     protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -12,4 +12,9 @@ class Presensi extends Model
     protected $table = 'presensis';
 
     protected $guarded = ['id'];
+
+    public function karyawan()
+    {
+        return $this->belongsTo(Karyawan::class);
+    }
 }

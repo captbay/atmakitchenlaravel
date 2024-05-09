@@ -12,4 +12,9 @@ class PembelianBahanBaku extends Model
     protected $table = 'pembelian_bahan_bakus';
 
     protected $guarded = ['id'];
+
+    public function bahan_baku()
+    {
+        return $this->belongsTo(BahanBaku::class);
+    }
 }

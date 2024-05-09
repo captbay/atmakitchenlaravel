@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class HistoryPengembalianSaldo extends Model
 {
     use HasFactory;
+
+    protected $table = 'history_pengembalian_saldos';
+
+    protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

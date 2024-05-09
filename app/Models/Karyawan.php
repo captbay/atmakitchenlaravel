@@ -12,4 +12,19 @@ class Karyawan extends Model
     protected $table = 'karyawans';
 
     protected $guarded = ['id'];
+
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class);
+    }
+
+    public function presensi()
+    {
+        return $this->hasMany(Presensi::class);
+    }
+
+    public function pemesanan()
+    {
+        return $this->hasMany(Pemesanan::class);
+    }
 }

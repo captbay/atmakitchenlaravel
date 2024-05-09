@@ -12,4 +12,14 @@ class Hampers extends Model
     protected $table = 'hampers';
 
     protected $guarded = ['id'];
+
+    public function detail_pemesanan()
+    {
+        return $this->hasMany(DetailPemesanan::class);
+    }
+
+    public function detail_hampers()
+    {
+        return $this->hasMany(DetailHampers::class);
+    }
 }

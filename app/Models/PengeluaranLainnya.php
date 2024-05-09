@@ -12,4 +12,9 @@ class PengeluaranLainnya extends Model
     protected $table = 'pengeluaran_lainnyas';
 
     protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
