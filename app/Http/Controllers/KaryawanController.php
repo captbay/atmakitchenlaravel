@@ -12,7 +12,20 @@ class KaryawanController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $data = Karyawan::with('jabatan')->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => 'Success Get Data',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage(),
+            ], 500);
+        }
     }
 
     /**
