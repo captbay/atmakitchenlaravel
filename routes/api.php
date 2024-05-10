@@ -11,12 +11,7 @@ use App\Http\Controllers\PenitipController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProdukTitipanController;
 use App\Http\Controllers\PromoPoinController;
-use App\Models\BonusGaji;
-use App\Models\Produk;
-use App\Models\ProdukTitipan;
 use App\Http\Controllers\PengeluaranLainnyaController;
-use App\Http\Controllers\PresensiController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -279,3 +274,6 @@ Route::group(['prefix' => 'presensi', 'middleware' => ['auth:sanctum', 'verified
     // // update
     // Route::put('update/{id}', [PresensiController::class, 'update']);
 });
+
+// index
+Route::get('karyawan/index', [KaryawanController::class, 'index']);
