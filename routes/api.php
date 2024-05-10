@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlamatController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BahanBakuController;
 use App\Http\Controllers\BonusGajiController;
@@ -13,6 +14,8 @@ use App\Http\Controllers\PromoPoinController;
 use App\Models\BonusGaji;
 use App\Models\Produk;
 use App\Models\ProdukTitipan;
+use App\Http\Controllers\PengeluaranLainnyaController;
+use App\Http\Controllers\PresensiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -54,9 +57,6 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth:sanctum', 'verified']],
     // change password
     Route::put('changePassword', [AuthController::class, 'changePassword']);
 });
-
-// ini hapus
-Route::get('/karyawan/alltantok', [KaryawanController::class, 'index']);
 
 // karyawan
 Route::group(['prefix' => 'karyawan', 'middleware' => ['auth:sanctum', 'verified']], function () {
@@ -196,4 +196,125 @@ Route::group(['prefix' => 'bonus-gaji', 'middleware' => ['auth:sanctum', 'verifi
     Route::post('update/{id}', [BonusGajiController::class, 'update']);
     // destroy
     Route::delete('destroy/{id}', [BonusGajiController::class, 'destroy']);
+});
+// Pengeluaran Lainnya
+Route::group(['prefix' => 'pengeluaran-lainnya', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('index', [PengeluaranLainnyaController::class, 'index']);
+    // store
+    Route::post('store', [PengeluaranLainnyaController::class, 'store']);
+    // show
+    Route::get('show/{id}', [PengeluaranLainnyaController::class, 'show']);
+    // update
+    Route::put('update/{id}', [PengeluaranLainnyaController::class, 'update']);
+    // destroy
+    Route::delete('destroy/{id}', [PengeluaranLainnyaController::class, 'destroy']);
+});
+
+// Presensi Karyawan (ini kayaknya ndak ada karena kita website)
+Route::group(['prefix' => 'presensi', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // // index
+    // Route::get('index', [PresensiController::class, 'index']);
+    // // update
+    // Route::put('update/{id}', [PresensiController::class, 'update']);
+});
+
+// Registrasi User
+Route::group(
+    [
+        'prefix' => 'user', 'middleware' => [
+            'auth:sanctum', 'verified'
+        ]
+    ],
+    function () {
+        // update
+        Route::get('update', [AuthController::class, 'updateCustomer']);
+        // profile
+        Route::get('profile', [AuthController::class, 'profile']);
+        // transaksi
+        Route::get('historyPesanan/{id}', [AuthController::class, 'historyPesanan']);
+    }
+);
+
+// Mencari Data Customer
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('indexCustomer', [AuthController::class, 'indexCustomer']);
+    // kalo cari pesanan si customer bisa pake api/user/historyPesanan/{id} diatas nah si id pake si id user
+});
+
+
+// alamat
+Route::group(['prefix' => 'alamat', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('index', [AlamatController::class, 'index']);
+    // store
+    Route::post('store', [AlamatController::class, 'store']);
+    // show
+    Route::get('show/{id}', [AlamatController::class, 'show']);
+    // update
+    Route::put('update/{id}', [AlamatController::class, 'update']);
+    // destroy
+    Route::delete('destroy/{id}', [AlamatController::class, 'destroy']);
+});
+
+// Pengeluaran Lainnya
+Route::group(['prefix' => 'pengeluaran-lainnya', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('index', [PengeluaranLainnyaController::class, 'index']);
+    // store
+    Route::post('store', [PengeluaranLainnyaController::class, 'store']);
+    // show
+    Route::get('show/{id}', [PengeluaranLainnyaController::class, 'show']);
+    // update
+    Route::put('update/{id}', [PengeluaranLainnyaController::class, 'update']);
+    // destroy
+    Route::delete('destroy/{id}', [PengeluaranLainnyaController::class, 'destroy']);
+});
+
+// Presensi Karyawan (ini kayaknya ndak ada karena kita website)
+Route::group(['prefix' => 'presensi', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // // index
+    // Route::get('index', [PresensiController::class, 'index']);
+    // // update
+    // Route::put('update/{id}', [PresensiController::class, 'update']);
+});
+
+// Registrasi User
+Route::group(
+    [
+        'prefix' => 'user', 'middleware' => [
+            'auth:sanctum', 'verified'
+        ]
+    ],
+    function () {
+        // update
+        Route::get('update', [AuthController::class, 'updateCustomer']);
+        // profile
+        Route::get('profile', [AuthController::class, 'profile']);
+        // transaksi
+        Route::get('historyPesanan/{id}', [AuthController::class, 'historyPesanan']);
+    }
+);
+
+// Mencari Data Customer
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('indexCustomer', [AuthController::class, 'indexCustomer']);
+    // kalo cari pesanan si customer bisa pake api/user/historyPesanan/{id} diatas nah si id pake si id user
+});
+
+
+// alamat
+Route::group(['prefix' => 'alamat', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('index', [AlamatController::class, 'index']);
+    // store
+    Route::post('store', [AlamatController::class, 'store']);
+    // show
+    Route::get('show/{id}', [AlamatController::class, 'show']);
+    // update
+    Route::put('update/{id}', [AlamatController::class, 'update']);
+    // destroy
+    Route::delete('destroy/{id}', [AlamatController::class, 'destroy']);
 });

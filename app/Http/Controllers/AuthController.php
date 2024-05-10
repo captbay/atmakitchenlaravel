@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pemesanan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -375,6 +376,127 @@ class AuthController extends Controller
             $user->sendEmailVerificationNotification();
 
             return response()->json(["message" => "Link Verifikasi Email Dikirim Ke Email Anda!"]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    // update data customer
+    public function updateCustomer(Request $request)
+    {
+        try {
+            $validatedData = Validator::make($request->all(), [
+                'name' => 'required',
+            ], [
+                'name.required' => 'Nama wajib diisi!',
+            ]);
+
+            // if validation fails
+            if ($validatedData->fails()) {
+                return response()->json(['message' => $validatedData->errors()], 422);
+            }
+
+            $data = User::find(Auth::user()->id);
+
+            if (!$data) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Data tidak ditemukan',
+                ], 404);
+            }
+
+            $data->update([
+                'name' => $request->name,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => 'Berhasil menngubah data',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    // show
+    public function profile()
+    {
+        try {
+
+            $data = User::find(Auth::user()->id);
+
+            if (!$data) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Data tidak ditemukan',
+                ], 404);
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => 'Berhasil menampilkan data',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    // historyPesanan
+    public function historyPesanan($id)
+    {
+        try {
+            $data = Pemesanan::with('kurir', 'detail_pemesanan.produk', 'detail_pemesanan.hampers', 'detail_pemesanan.produk_titipan')
+                ->where('user_id', $id)->get();
+
+            if (!$data) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Data tidak ditemukan',
+                ], 404);
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => 'Berhasil mengecek transaksi',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error: ' . $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    // indexCustomer
+    public function indexCustomer()
+    {
+        try {
+            $data = User::where('role', 'customer')->get();
+
+            if (!$data) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Data tidak ditemukan',
+                ], 404);
+            }
+
+            return response()->json([
+                'success' => true,
+                'data' => $data,
+                'message' => 'Berhasil mengecek data customer',
+            ], 200);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,

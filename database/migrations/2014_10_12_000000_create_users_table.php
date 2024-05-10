@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -22,6 +24,36 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin@mail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'role' => 'admin',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'mo',
+            'email' => 'mo@mail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'role' => 'mo',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'owner',
+            'email' => 'owner@mail.com',
+            'email_verified_at' => now(),
+            'password' => Hash::make('password'),
+            'role' => 'owner',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
     }
 
     /**
