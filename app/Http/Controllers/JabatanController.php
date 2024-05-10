@@ -114,7 +114,7 @@ class JabatanController extends Controller
                     'name' => 'required',
                 ],
                 [
-                    'name.required' => 'Nama penitip wajib diisi!',
+                    'name.required' => 'Jabatan wajib diisi!',
                 ]
             );
 
@@ -136,7 +136,7 @@ class JabatanController extends Controller
             }
 
             $jabatan->update([
-                'name' => $request->bahan_baku_id,
+                'name' => $request->name,
             ]);
 
             return response()->json([
