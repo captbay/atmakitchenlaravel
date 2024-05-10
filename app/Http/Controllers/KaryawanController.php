@@ -45,7 +45,7 @@ class KaryawanController extends Controller
                     'name' => 'required'
                 ],
                 [
-                    'jabatan_id' => 'Jabatan wajib dipilih',
+                    'jabatan_id.required' => 'Jabatan wajib dipilih',
                     'name.required' => 'Nama penitip wajib diisi!',
                 ]
             );
@@ -120,7 +120,7 @@ class KaryawanController extends Controller
                     'name' => 'required'
                 ],
                 [
-                    'jabatan_id' => 'Jabatan wajib dipilih',
+                    'jabatan_id.required' => 'Jabatan wajib dipilih',
                     'name.required' => 'Nama penitip wajib diisi!',
                 ]
             );
