@@ -97,15 +97,13 @@ class AuthController extends Controller
                     ->letters()
                     ->mixedCase()
                     ->numbers()
-                    ->symbols()
-                    ->uncompromised()],
+                    ->symbols()],
             ], [
                 'password.min' => 'Password minimal 6 karakter',
                 'password.letters' => 'Password minimal memiliki 1 huruf',
                 'password.numbers' => 'Password minimal memiliki 1 angka',
                 'password.symbols' => 'Password minimal memiliki 1 simbol',
                 'password.mixed' => 'Password minimal memiliki 1 huruf kecil dan besar',
-                'password.uncompromised' => 'Silahkan masukkan password yang berbeda karena password ini tidak aman',
             ]);
 
             // if validation fails
@@ -181,8 +179,7 @@ class AuthController extends Controller
                         ->letters()
                         ->mixedCase()
                         ->numbers()
-                        ->symbols()
-                        ->uncompromised()],
+                        ->symbols()],
                     'confirm_password' => 'required|min:6|same:password',
                 ],
                 [
@@ -190,7 +187,6 @@ class AuthController extends Controller
                     'password.numbers' => 'Kata Sandi Baru minimal memiliki 1 angka',
                     'password.symbols' => 'Kata Sandi Baru minimal memiliki 1 simbol',
                     'password.mixed' => 'Kata Sandi Baru minimal memiliki 1 huruf kecil dan besar',
-                    'password.uncompromised' => 'Silahkan masukkan password yang berbeda karena password ini tidak aman',
                     'password.min' => 'Kata Sandi Baru Minimal 6 Karakter!',
                     'password.different' => 'Kata Sandi Baru Harus Berbeda Dengan Kata Sandi Lama!',
                     'confirm_password.min' => 'Konfirmasi Kata Sandi Minimal 6 Karakter!',
@@ -281,8 +277,7 @@ class AuthController extends Controller
                         ->letters()
                         ->mixedCase()
                         ->numbers()
-                        ->symbols()
-                        ->uncompromised()],
+                        ->symbols()],
                     'confirm_password' => 'required|same:password',
                 ],
                 [
@@ -291,7 +286,6 @@ class AuthController extends Controller
                     'password.numbers' => 'Password minimal memiliki 1 angka',
                     'password.symbols' => 'Password minimal memiliki 1 simbol',
                     'password.mixed' => 'Password minimal memiliki 1 huruf kecil dan besar',
-                    'password.uncompromised' => 'Silahkan masukkan password yang berbeda karena password ini tidak aman',
                     'confirm_password.same' => 'Kata Sandi dan Konfirmasi Password Tidak Sama!',
                 ]
             );
