@@ -39,8 +39,8 @@ class ResepController extends Controller
             $validationData = Validator::make(
                 [
                     'produk_id' => $request->produk_id,
-                    'bahan_baku_id' => $request->stok,
-                    'jumlah' => $request->satuan,
+                    'bahan_baku_id' => $request->bahan_baku_id,
+                    'jumlah' => $request->jumlah,
                 ],
                 [
                     'produk_id' => 'required',
@@ -63,7 +63,7 @@ class ResepController extends Controller
 
             $resep = Resep::create([
                 'produk_id' => $request->produk_id,
-                'bahan_baku' => $request->bahan_baku,
+                'bahan_baku_id' => $request->bahan_baku_id,
                 'jumlah' => $request->jumlah,
             ]);
 
@@ -119,8 +119,8 @@ class ResepController extends Controller
             $validationData = Validator::make(
                 [
                     'produk_id' => $request->produk_id,
-                    'bahan_baku_id' => $request->stok,
-                    'jumlah' => $request->satuan,
+                    'bahan_baku_id' => $request->bahan_baku_id,
+                    'jumlah' => $request->jumlah,
                 ],
                 [
                     'produk_id' => 'required',
@@ -153,7 +153,7 @@ class ResepController extends Controller
 
             $resep->update([
                 'produk_id' => $request->produk_id,
-                'bahan_baku' => $request->bahan_baku,
+                'bahan_baku_id' => $request->bahan_baku_id,
                 'jumlah' => $request->jumlah,
             ]);
 
