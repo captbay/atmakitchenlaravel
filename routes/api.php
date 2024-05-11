@@ -222,7 +222,6 @@ Route::group(['prefix' => 'hampers', 'middleware' => ['auth:sanctum', 'verified'
     Route::post('update/{id}', [HampersController::class, 'update']);
     // destroy
     Route::delete('destroy/{id}', [HampersController::class, 'destroy']);
-
 });
 
 // Pengeluaran Lainnya
@@ -256,7 +255,7 @@ Route::group(
     ],
     function () {
         // update
-        Route::get('update', [AuthController::class, 'updateCustomer']);
+        Route::put('update', [AuthController::class, 'updateCustomer']);
         // profile
         Route::get('profile', [AuthController::class, 'profile']);
         // transaksi
