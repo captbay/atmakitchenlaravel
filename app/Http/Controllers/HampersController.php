@@ -16,7 +16,7 @@ class HampersController extends Controller
     public function index()
     {
         try {
-            $hampers = Hampers::with('detail_hampers')->get();
+            $hampers = Hampers::with('detail_hampers.produk')->get();
 
             return response()->json([
                 'success' => true,
