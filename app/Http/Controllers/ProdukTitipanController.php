@@ -81,7 +81,7 @@ class ProdukTitipanController extends Controller
                 'name' => $request->name,
                 'harga' => $request->harga,
                 'kategori' => $request->kategori,
-                'gambar' => 'images/produk_images/' . $img_name,
+                'gambar' => 'images/produk_titipan/' . $img_name,
             ]);
 
             return response()->json([
