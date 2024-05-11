@@ -4,6 +4,7 @@ use App\Http\Controllers\AlamatController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BahanBakuController;
 use App\Http\Controllers\BonusGajiController;
+use App\Http\Controllers\HampersController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\PembelianBahanBakuController;
@@ -12,6 +13,8 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProdukTitipanController;
 use App\Http\Controllers\PromoPoinController;
 use App\Http\Controllers\PengeluaranLainnyaController;
+use App\Http\Controllers\ResepController;
+use App\Models\Hampers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -193,6 +196,35 @@ Route::group(['prefix' => 'bonus-gaji', 'middleware' => ['auth:sanctum', 'verifi
     Route::delete('destroy/{id}', [BonusGajiController::class, 'destroy']);
 });
 
+// resep
+Route::group(['prefix' => 'resep', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('index', [ResepController::class, 'index']);
+    // store
+    Route::post('store', [ResepController::class, 'store']);
+    // show
+    Route::get('show/{id}', [ResepController::class, 'show']);
+    // update
+    Route::post('update/{id}', [ResepController::class, 'update']);
+    // destroy
+    Route::delete('destroy/{id}', [ResepController::class, 'destroy']);
+});
+
+// hampers
+Route::group(['prefix' => 'hampers', 'middleware' => ['auth:sanctum', 'verified']], function () {
+    // index
+    Route::get('index', [HampersController::class, 'index']);
+    // store
+    Route::post('store', [HampersController::class, 'store']);
+    // show
+    Route::get('show/{id}', [HampersController::class, 'show']);
+    // update
+    Route::post('update/{id}', [HampersController::class, 'update']);
+    // destroy
+    Route::delete('destroy/{id}', [HampersController::class, 'destroy']);
+
+});
+
 // Pengeluaran Lainnya
 Route::group(['prefix' => 'pengeluaran-lainnya', 'middleware' => ['auth:sanctum', 'verified']], function () {
     // index
@@ -274,6 +306,3 @@ Route::group(['prefix' => 'presensi', 'middleware' => ['auth:sanctum', 'verified
     // // update
     // Route::put('update/{id}', [PresensiController::class, 'update']);
 });
-
-// index
-Route::get('karyawan/index', [KaryawanController::class, 'index']);
