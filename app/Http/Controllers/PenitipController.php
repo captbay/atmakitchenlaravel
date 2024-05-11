@@ -56,7 +56,7 @@ class PenitipController extends Controller
             }
 
             $penitip = Penitip::create([
-                'name' => $request->bahan_baku_id,
+                'name' => $request->name,
             ]);
 
             return response()->json([
