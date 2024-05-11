@@ -81,10 +81,7 @@ class HampersController extends Controller
                 'gambar' => 'images/hampers/' . $img_name,
             ]);
 
-            $detail_hampers = '[{"product_id": 1, "jumlah": 1},{"product_id": 2, "jumlah": 1},{"product_id": 3, "jumlah": 1}]';
-            $detail_hampers = json_decode($detail_hampers, true);
-
-            // $detail_hampers = json_decode($request->detail_hampers, true);
+            $detail_hampers = json_decode($request->detail_hampers, true);
             $result = [];
 
             foreach ($detail_hampers as $data) {
