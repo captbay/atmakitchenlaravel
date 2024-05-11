@@ -15,7 +15,7 @@ class PembelianBahanBakuController extends Controller
     public function index()
     {
         try {
-            $pembelian_bahan_baku = PembelianBahanBaku::with('bahan_baku')->all();
+            $pembelian_bahan_baku = PembelianBahanBaku::with('bahan_baku')->get();
 
             return response()->json([
                 'success' => true,
