@@ -41,19 +41,16 @@ class PembelianBahanBakuController extends Controller
                     'bahan_baku_id' => $request->bahan_baku_id,
                     'jumlah' => $request->jumlah,
                     'total_harga' => $request->total_harga,
-                    'waktu' => $request->waktu,
                 ],
                 [
                     'bahan_baku_id' => 'required',
                     'jumlah' => 'required',
                     'total_harga' => 'required',
-                    'waktu' => 'required'
                 ],
                 [
                     'bahan_baku_id.required' => 'Bahan baku wajib dipilih!',
                     'jumlah.required' => 'Jumlah pembelian bahan baku wajib diisi!',
                     'total_harga.required' => 'Total harga pembelian bahan baku wajib diisi!',
-                    'waktu.required' => 'Waktu pembelian bahan baku wajib diisi!'
                 ]
             );
 
@@ -68,7 +65,7 @@ class PembelianBahanBakuController extends Controller
                 'bahan_baku_id' => $request->bahan_baku_id,
                 'jumlah' => $request->jumlah,
                 'total_harga' => $request->total_harga,
-                'waktu' => $request->waktu
+                'waktu' => Carbon::now()
             ]);
 
             return response()->json([
@@ -124,19 +121,16 @@ class PembelianBahanBakuController extends Controller
                     'bahan_baku_id' => $request->bahan_baku_id,
                     'jumlah' => $request->jumlah,
                     'total_harga' => $request->total_harga,
-                    'waktu' => $request->waktu,
                 ],
                 [
                     'bahan_baku_id' => 'required',
                     'jumlah' => 'required',
                     'total_harga' => 'required',
-                    'waktu' => 'required'
                 ],
                 [
                     'bahan_baku_id.required' => 'Bahan baku wajib dipilih!',
                     'jumlah.required' => 'Jumlah pembelian bahan baku wajib diisi!',
                     'total_harga.required' => 'Total harga pembelian bahan baku wajib diisi!',
-                    'waktu.required' => 'Waktu pembelian bahan baku wajib diisi!'
                 ]
             );
 
@@ -153,7 +147,6 @@ class PembelianBahanBakuController extends Controller
                 'bahan_baku_id' => $request->bahan_baku_id,
                 'jumlah' => $request->jumlah,
                 'total_harga' => $request->total_harga,
-                'waktu' => $request->waktu
             ]);
 
             return response()->json([
