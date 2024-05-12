@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Password as RulesPassword;
 
@@ -112,13 +113,16 @@ class AuthController extends Controller
             }
 
             // create user
-            User::create([
+            $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'remember_token' => uniqid(),
                 'role' => 'customer',
-            ])->sendEmailVerificationNotification();
+            ]);
+
+            // send email verification
+            event(new Registered($user));
 
             // return response
             return response()->json([
