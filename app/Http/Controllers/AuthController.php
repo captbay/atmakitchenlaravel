@@ -116,7 +116,7 @@ class AuthController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'kode_verif_email' => uniqid(),
+                'remember_token' => uniqid(),
                 'role' => 'customer',
             ])->sendEmailVerificationNotification();
 
